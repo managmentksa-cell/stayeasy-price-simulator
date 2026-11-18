@@ -2,17 +2,289 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>stayeasy | محاكي الأسعار</title>
-<style>body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#F2F4FF;color:#14171F;display:grid;place-items:center;min-height:100vh}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2B5CFF">
+<title>stayeasy | محاكي الأسعار 2026–2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Sans&#43;Arabic:wght@400;500;600;700&amp;family=Plus&#43;Jakarta&#43;Sans:wght@500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2B5CFF;--blue-d:#1F47D6;--ink:#14171F;--sun:#FFC93C;--bg:#F2F4FF;--card:#fff;--fg:#14171F;--mut:#5E6478;--line:#E3E7F5;--wk:#E4EBFF;--sun2:#FFF4CC;--ar:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;--lat:"Plus Jakarta Sans","IBM Plex Sans Arabic",Tahoma,sans-serif;--r:20px;--sh:0 1px 2px rgba(20,23,31,.04),0 10px 30px rgba(43,92,255,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--ar);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.num,.d .r,.d .n,.d b,td,.wm,.hs b{font-family:var(--lat);font-variant-numeric:tabular-nums}
+.house{display:inline-block;background:currentColor;width:.62em;height:.72em;clip-path:polygon(50% 0,100% 42%,100% 100%,0 100%,0 42%)}
+.wm{display:inline-flex;align-items:baseline;direction:ltr;font-weight:800;letter-spacing:-.035em;line-height:1;font-size:26px}
+.wm .house{margin:0 .09em 0 .07em;color:var(--sun)}
+@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:.18}}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(50%)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,201,60,.7)}70%{box-shadow:0 0 0 9px rgba(255,201,60,0)}100%{box-shadow:0 0 0 0 rgba(255,201,60,0)}}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sun);animation:pulse 1.8s infinite}
+.hero{position:relative;overflow:hidden;background:var(--blue);color:#fff;padding:18px 18px 110px}
+.hp{position:absolute;inset:0;pointer-events:none;opacity:.13}
+.hp i{position:absolute;width:26px;height:30px;background:#fff;clip-path:polygon(50% 0,100% 42%,100% 100%,0 100%,0 42%)}
+.hw{position:relative;max-width:1180px;margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand small{font-size:12px;opacity:.9;border-inline-start:1px solid rgba(255,255,255,.4);padding-inline-start:12px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:999px;font-size:12px;margin-top:34px}
+h1{font-size:clamp(30px,5.5vw,52px);line-height:1.15;margin:12px 0 8px;font-weight:700}
+h1 em{font-style:normal;color:var(--sun)}
+.sub{opacity:.92;max-width:640px;margin:0}
+.hs{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.hs div{min-width:96px;padding:10px 16px;border:1px solid rgba(255,255,255,.35);border-radius:14px;text-align:center}
+.hs b{display:block;font-size:24px}.hs span{font-size:12px;opacity:.9}
+.mq{position:relative;margin-top:22px;overflow:hidden;white-space:nowrap;direction:ltr;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq div{display:inline-block;animation:slide 40s linear infinite reverse}
+.mq span{display:inline-flex;align-items:center;gap:8px;margin:0 22px;font-weight:700;font-size:15px;opacity:.85}
+.mq .house{color:var(--sun);font-size:14px}
+.wrap{max-width:1180px;margin:-78px auto 0;padding:0 14px 90px;position:relative}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);padding:18px 20px;margin-bottom:16px}
+.st{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.st .ic{width:38px;height:38px;border-radius:12px;background:#EAEFFF;color:var(--blue);display:grid;place-items:center}
+.st small{display:block;color:var(--blue);font-size:11px}.st b{font-size:17px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+label{display:block;font-size:12px;color:var(--mut);margin-bottom:5px}
+select,input[type=date]{width:100%;height:44px;border:1.5px solid var(--line);border-radius:14px;background:#F7F9FF;padding:0 12px;font:500 14px var(--ar);color:var(--fg)}
+select:focus,input:focus{outline:2px solid var(--blue);border-color:transparent}
+.note{font-size:12px;color:var(--mut);margin-top:10px}
+button{border:1.5px solid var(--line);background:var(--card);color:var(--fg);border-radius:14px;padding:9px 14px;font:600 13px var(--ar);cursor:pointer}
+button.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.hint{background:#F3F5FF;border-radius:14px;padding:14px 16px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-weight:600;color:var(--mut);text-align:start;padding:8px;border-bottom:1px solid var(--line)}
+td{padding:8px;border-bottom:1px solid var(--line)}
+tr.we td{background:var(--wk)}
+.tot{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:14px}
+.tot div{background:#F3F5FF;border-radius:14px;padding:12px 14px}
+.tot span{font-size:12px;color:var(--mut)}.tot strong{display:block;font-size:22px;font-family:var(--lat)}
+.tot .lo strong{color:#D13B3B}.tot .no strong{color:var(--blue)}
+.lg{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--mut);margin-bottom:12px}
+.lg i{display:inline-block;width:14px;height:14px;border-radius:5px;vertical-align:-2px;margin-inline-end:5px;border:1px solid var(--line)}
+.months{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.mo h3{margin:0 0 10px;font-size:15px;display:flex;align-items:center;gap:8px}
+.mo h3 .house{color:var(--blue);font-size:15px}
+.gr{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.gr .h{font-size:11px;color:var(--mut);text-align:center;padding:4px 0}
+.d{position:relative;border:1.5px solid var(--line);border-radius:12px;background:#fff;text-align:center;padding:14px 2px 6px;min-height:62px;cursor:pointer;user-select:none}
+.d:hover{border-color:#9DB2FF}
+.d .n{position:absolute;top:3px;inset-inline-start:6px;font-size:10px;color:var(--mut)}
+.d .r{display:block;font-weight:800;font-size:15px;line-height:1.1}
+.d b{display:block;font-weight:500;font-size:11px;color:var(--mut)}
+.d.we{background:var(--wk);border-color:#D5DFFF}
+.d.in{background:var(--blue);border-color:var(--blue);color:#fff}
+.d.in b,.d.in .n{color:rgba(255,255,255,.85)}
+.d.e{visibility:hidden}
+.d.na{opacity:.4;cursor:default}
+.fab{position:fixed;inset-inline-end:18px;bottom:18px;z-index:20;background:var(--ink);color:#fff;border-color:var(--ink);padding:13px 18px;border-radius:999px;box-shadow:0 8px 26px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
+.fab .house{color:var(--sun);font-size:15px}
+.chat{position:fixed;inset-inline-end:18px;bottom:76px;width:min(380px,calc(100vw - 36px));height:min(520px,70vh);background:#fff;border-radius:20px;box-shadow:0 18px 50px rgba(20,23,31,.28);display:none;flex-direction:column;z-index:21;overflow:hidden}
+.chat.on{display:flex}
+.chat header{background:var(--blue);color:#fff;padding:12px 16px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.chat header button{background:none;border:0;color:#fff;font-size:18px;padding:0 4px}
+#cl{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#F7F9FF}
+.m{max-width:86%;padding:9px 12px;border-radius:14px;white-space:pre-wrap;font-size:13px}
+.m.u{align-self:flex-start;background:var(--blue);color:#fff}
+.m.a{align-self:flex-end;background:#fff;border:1px solid var(--line)}
+.cf{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+.cf input{flex:1;height:42px;border:1.5px solid var(--line);border-radius:12px;padding:0 12px;font:14px var(--ar)}
+.d.mn{background:var(--sun2);border-color:var(--sun)}
+.mf{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:end}
+input[type=number],input[type=password]{width:100%;height:44px;border:1.5px solid var(--line);border-radius:14px;background:#F7F9FF;padding:0 12px;font:500 14px var(--lat);color:var(--fg)}
+.ml{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.ml div{display:flex;align-items:center;gap:10px;background:var(--sun2);border-radius:12px;padding:8px 12px;font-size:13px}
+.ml div span{flex:1}.ml button{padding:4px 10px;color:#D13B3B}
+.foot{text-align:center;color:var(--mut);font-size:12px;padding:20px}
+@media(max-width:640px){.months{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<div id="m">جارٍ تحميل المحاكي…</div>
+<header class="hero">
+ <div class="hp" id="hp"></div>
+ <div class="hw">
+  <div class="top"><div class="brand"><span class="wm">stay<i class="house"></i>easy</span><small>قسم الدخل والمبيعات</small></div></div>
+  <span class="badge"><span class="live"></span> محاكي الأسعار · أوفلاين</span>
+  <h1>أسعار <em>2026–2027</em></h1>
+  <p class="sub">الأسعار اليومية لكل عقار ونوع وحدة من 1 نوفمبر 2026 حتى 31 ديسمبر 2027، محسوبة من سعر رباط الأساسي: العادي بعد خصم 10%، والأدنى أقل من العادي بنسبة 5%، مقرّبين لأقرب 5 ريال.</p>
+  
+  <div class="mq"><div id="mq"></div></div>
+ </div>
+</header>
+
+<main class="wrap">
+ <section class="card">
+  <div class="st"><div class="ic"><i class="house"></i></div><div><small>الخطوة الأولى</small><b>اختر العقار والتواريخ</b></div></div>
+  <div class="fg">
+   <div><label>العقار</label><select id="fp"></select></div>
+   <div><label>نوع الوحدة</label><select id="ft"></select></div>
+   <div><label>تاريخ الدخول</label><input type="date" id="fi" min="2026-11-01" max="2027-12-31"></div>
+   <div><label>تاريخ الخروج</label><input type="date" id="fo" min="2026-11-01" max="2028-01-01"></div>
+  </div>
+  <div class="note" id="upd">جارٍ تحميل الأسعار…</div>
+ </section>
+
+ <section class="card">
+  <div class="st"><div><b>تسعير الإقامة</b></div></div>
+  <div id="res"><div class="hint">اختر تاريخ الدخول والخروج من الأعلى أو بالضغط على يومين في التقويم.</div></div>
+ </section>
+
+ <section class="card">
+  <div class="st"><div><b>التقويم</b></div></div>
+  <div class="lg"><span><i style="background:#fff"></i>يوم عادي</span><span><i style="background:var(--wk)"></i>عطلة نهاية الأسبوع (الخميس والجمعة)</span><span><i style="background:var(--blue)"></i>ضمن الإقامة المختارة</span><span>الرقم الكبير = السعر العادي · الرقم الصغير = السعر الأدنى (بالريال لليلة)</span></div>
+  <div class="months" id="months"></div>
+ </section>
+ <div class="foot" style="padding:6px"><button id="lk" style="border:0;background:none;color:var(--mut);font-size:12px;cursor:pointer">🔒 تحديث الأسعار (خاص)</button></div>
+ <section class="card" id="mcard" style="display:none">
+  <div class="st"><div class="ic"><i class="house"></i></div><div><small>تحديث دوري</small><b>إضافة سعر شهري يدوي</b></div></div>
+  <div class="fg" style="margin-bottom:12px"><div><label>العقار</label><select id="mp"></select></div><div><label>نوع الوحدة</label><select id="mt"></select></div></div>
+  <div class="mf">
+   <div><label>الشهر</label><select id="mm"></select></div>
+   <div><label>السعر العادي لليلة</label><input type="number" id="mn" min="0" step="5" placeholder="مثال 450"></div>
+   <div><label>أقل سعر (اختياري)</label><input type="number" id="ml" min="0" step="5" placeholder="تلقائي أقل 5%"></div>
+   <div><label>رمز الدخول</label><input type="password" id="mc" autocomplete="off"></div>
+   <div><button class="pri" id="msv" style="width:100%;height:44px">حفظ السعر الشهري</button></div>
+  </div>
+  <div class="note" id="mmsg">السعر الشهري يطبَّق على كل ليالي الشهر ويتقدّم على سعر رباط، ويظهر باللون الأصفر في التقويم. اترك السعر العادي فارغًا ثم احفظ لحذفه.</div>
+  <div class="ml" id="mlist"></div>
+ </section>
+ <div class="foot"><span class="wm" style="font-size:18px;color:var(--blue)">stay<i class="house"></i>easy</span><br>الأسعار للاستخدام الداخلي · الحد الأدنى هو أدنى سعر للتفاوض</div>
+</main>
+
+<button class="fab" id="fab"><i class="house"></i> اسأل مساعد الأسعار</button>
+<div class="chat" id="chat">
+ <header><span>مساعد الأسعار</span><button id="cx">×</button></header>
+ <div id="cl"><div class="m a">أهلًا، اسألني عن أسعار أي عقار أو إقامة بين التواريخ المتاحة، وسأحسبها لك ليلة بليلة.</div></div>
+ <form class="cf" id="cf"><input id="cq" placeholder="اكتب سؤالك…" autocomplete="off"><button class="pri">إرسال</button></form>
+</div>
+
 <script>
 var API='https://script.google.com/macros/s/AKfycbwCGtjBvU2xpdkpZ0AXa1VcgFw9QIyaRzYDnVsyIahiXtwE_yrvCzd4zhVCVyx8n7gP/exec';
-fetch(API+'?p=simpage').then(function(r){return r.text()}).then(function(h){
-  document.open();document.write(h);document.close();
-}).catch(function(){document.getElementById('m').textContent='تعذّر تحميل المحاكي. تأكد من الاتصال ثم حدّث الصفحة.'});
+var DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+var MON=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+var DATA=null,IN=null,OUT=null,MON_={};
+var $=function(i){return document.getElementById(i)};
+function ds(d){return d.toISOString().slice(0,10)}
+function pd(s){return new Date(s+'T00:00:00Z')}
+function fmt(n){return Number(n).toLocaleString('en-US')}
+function cur(){var p=DATA.props[$('fp').value];return p&&p.t[$('ft').value]||{}}
+(function(){var h='';for(var i=0;i<26;i++){h+='<i style="left:'+(i*54%100)+'%;top:'+((i*37)%90)+'%"></i>'}$('hp').innerHTML=h})();
+function rpc(fn,args){return new Promise(function(ok,no){
+  if(window.google&&google.script&&google.script.run){google.script.run.withSuccessHandler(ok).withFailureHandler(function(e){no(e)})[fn].apply(null,args||[]);return}
+  var u;
+  if(fn==='simMonthlyGet')u=API+'?p=simmonthly';
+  else if(fn==='simMonthlySave')u=API+'?p=simmonthlysave&code='+encodeURIComponent(args[0])+'&k='+encodeURIComponent(args[1])+'&n='+args[2]+'&l='+args[3];
+  else u=API+'?p='+(fn==='simPlan'?'simplan':'simask');
+  if(fn==='simAskPub')u+='&q='+encodeURIComponent(args[0])+'&ctx='+encodeURIComponent(args[1]);
+  fetch(u).then(function(r){return r.json()}).then(ok,no)})}
+function load(){
+  rpc('simPlan',[false]).then(init).catch(function(){
+    fetch('plan.json').then(function(r){return r.json()}).then(init).catch(function(){$('upd').textContent='تعذّر تحميل الأسعار. تأكد من الاتصال ثم أعد المحاولة.'});
+  });
+}
+function init(d){
+  Object.keys(d.props).forEach(function(k){var q=d.props[k];if(/ضيافة البدراني/.test(q.n)||!Object.keys(q.t||{}).length)delete d.props[k]});
+  DATA=d;var ks=Object.keys(d.props),nt=0,nd=0;
+  ks.forEach(function(k){var t=d.props[k].t;nt+=Object.keys(t).length;Object.keys(t).forEach(function(x){nd+=Object.keys(t[x]).length})});
+  
+  $('fp').innerHTML=ks.map(function(k){return '<option value="'+k+'">'+d.props[k].n+'</option>'}).join('');
+  var m='';ks.forEach(function(k){m+='<span><i class="house"></i>'+d.props[k].n+'</span>'});$('mq').innerHTML=m+m;
+  var b=new Date(d.built);$('upd').textContent='آخر تحديث للأسعار من رباط: '+b.toLocaleDateString('ar-EG')+' '+b.toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'});
+  fillTypes();
+  var h='';for(var y=2026,m=10;!(y===2028&&m===0);){h+='<option value="'+y+'-'+('0'+(m+1)).slice(-2)+'">'+MON[m]+' '+y+'</option>';m++;if(m>11){m=0;y++}}
+  $('mm').innerHTML=h;$('mp').innerHTML=$('fp').innerHTML;fillMT();
+  rpc('simMonthlyGet',[]).then(function(r){MON_=r||{};applyMon();cal();calc();mlist()}).catch(function(){});
+}
+function fillMT(){var t=DATA.props[$('mp').value].t;$('mt').innerHTML=Object.keys(t).map(function(k){return '<option>'+k+'</option>'}).join('')}
+function mkey(m){return $('mp').value+'|'+$('mt').value+'|'+m}
+function r5(x){return Math.round(x/5)*5}
+function applyMon(){
+  Object.keys(MON_).forEach(function(k){
+    var a=k.split('|'),pp=DATA.props[a[0]];if(!pp||!pp.t[a[1]])return;
+    var v=MON_[k],ym=a[2],y=+ym.slice(0,4),m=+ym.slice(5,7),n=new Date(Date.UTC(y,m,0)).getUTCDate();
+    for(var d=1;d<=n;d++){var s=ym+'-'+('0'+d).slice(-2),o=pp.t[a[1]][s];pp.t[a[1]][s]=[o?o[0]:v[0],v[0],v[1]]}
+  });
+}
+function mkMap(){var r={};if(!DATA)return r;var p=$('fp').value,t=$('ft').value;Object.keys(MON_).forEach(function(k){var a=k.split('|');if(a[0]===p&&a[1]===t){var ym=a[2],n=new Date(Date.UTC(+ym.slice(0,4),+ym.slice(5,7),0)).getUTCDate();for(var d=1;d<=n;d++)r[ym+'-'+('0'+d).slice(-2)]=1}});return r}
+function mlist(){
+  var ks=Object.keys(MON_).sort(),h='';
+  ks.forEach(function(k){var a=k.split('|'),pp=DATA.props[a[0]];if(!pp)return;h+='<div><span>'+pp.n+' · '+a[1]+' · '+a[2]+' — عادي <b>'+fmt(MON_[k][0])+'</b> / أدنى <b>'+fmt(MON_[k][1])+'</b></span><button data-k="'+k+'">حذف</button></div>'});
+  $('mlist').innerHTML=h;
+}
+function msave(k,n,l){
+  var c=$('mc').value;if(!c){$('mmsg').textContent='اكتب رمز الدخول أولًا.';return}
+  $('mmsg').textContent='جارٍ الحفظ…';
+  rpc('simMonthlySave',[c,k,n,l]).then(function(r){
+    if(r&&r.error){$('mmsg').textContent='تعذّر الحفظ: '+r.error;return}
+    MON_=r.data||{};$('mmsg').textContent='تم الحفظ. أعد تحميل الأسعار لرؤية الأصل من رباط عند الحذف.';
+    if(!n){load();return}
+    applyMon();cal();calc();mlist();
+  }).catch(function(e){$('mmsg').textContent='تعذّر الحفظ.'});
+}
+$('msv').onclick=function(){
+  var n=Number($('mn').value)||0,l=Number($('ml').value)||0;
+  if(n&&!l)l=r5(n*0.95);
+  msave(mkey($('mm').value),n,l);
+};
+$('mlist').addEventListener('click',function(e){var b=e.target.closest('button');if(b)msave(b.dataset.k,0,0)});
+$('mp').onchange=fillMT;
+$('lk').onclick=function(){var c=$('mcard');c.style.display=c.style.display==='none'?'block':'none';if(c.style.display==='block')c.scrollIntoView({behavior:'smooth'})};
+function fillTypes(){var t=DATA.props[$('fp').value].t;$('ft').innerHTML=Object.keys(t).map(function(k){return '<option>'+k+'</option>'}).join('');cal();calc()}
+function cal(){
+  var o=cur(),h='',MK=mkMap();
+  for(var y=2026,m=10;!(y===2028&&m===0);){
+    var first=new Date(Date.UTC(y,m,1)),last=new Date(Date.UTC(y,m+1,0)).getUTCDate(),off=(first.getUTCDay()+1)%7;
+    h+='<div class="mo"><h3><i class="house"></i>'+MON[m]+' '+y+'</h3><div class="gr">';
+    ['سبت','أحد','اثنين','ثلاثاء','أربعاء','خميس','جمعة'].forEach(function(x){h+='<div class="h">'+x+'</div>'});
+    for(var i=0;i<off;i++)h+='<div class="d e"></div>';
+    for(var dd=1;dd<=last;dd++){
+      var s=y+'-'+('0'+(m+1)).slice(-2)+'-'+('0'+dd).slice(-2),v=o[s],dow=new Date(Date.UTC(y,m,dd)).getUTCDay();
+      var inr=IN&&s>=IN&&(OUT?s<OUT:s===IN);
+      h+='<div class="d'+(dow===4||dow===5?' we':'')+(inr?' in':'')+(v?'':' na')+(MK&&MK[s]?' mn':'')+'" data-d="'+s+'"><span class="n">'+dd+'</span>'+(v?'<span class="r">'+fmt(v[1])+'</span><b>'+fmt(v[2])+'</b>':'<span class="r">–</span>')+'</div>';
+    }
+    h+='</div></div>';m++;if(m>11){m=0;y++}
+  }
+  $('months').innerHTML=h;
+}
+function calc(){
+  var o=cur();
+  $('fi').value=IN||'';$('fo').value=OUT||'';
+  if(!IN||!OUT||OUT<=IN){$('res').innerHTML='<div class="hint">اختر تاريخ الدخول والخروج من الأعلى أو بالضغط على يومين في التقويم.</div>';return}
+  var rows='',tn=0,tl=0,miss=0,n=0;
+  for(var d=pd(IN);ds(d)<OUT;d=new Date(d.getTime()+864e5)){
+    var s=ds(d),v=o[s],dow=d.getUTCDay();n++;
+    if(!v){miss++;rows+='<tr><td>'+s+'</td><td>'+DAYS[dow]+'</td><td colspan="2">لا يوجد سعر</td></tr>';continue}
+    tn+=v[1];tl+=v[2];
+    rows+='<tr'+(dow===4||dow===5?' class="we"':'')+'><td>'+s+'</td><td>'+DAYS[dow]+'</td><td>'+fmt(v[1])+'</td><td>'+fmt(v[2])+'</td></tr>';
+  }
+  $('res').innerHTML='<table><thead><tr><th>التاريخ</th><th>اليوم</th><th>العادي</th><th>الأدنى</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+   '<div class="tot"><div class="no"><span>إجمالي السعر العادي ('+n+' ليلة)</span><strong>'+fmt(tn)+'</strong></div><div class="lo"><span>إجمالي أقل سعر</span><strong>'+fmt(tl)+'</strong></div><div><span>متوسط الليلة (عادي)</span><strong>'+fmt(Math.round(tn/Math.max(1,n-miss)))+'</strong></div></div>'+
+   (miss?'<div class="note">يوجد '+miss+' ليلة بلا سعر في رباط، ولم تُحتسب في الإجمالي.</div>':'');
+}
+function pick(s){
+  if(!IN||OUT||s<=IN){IN=s;OUT=null}else{OUT=s}
+  cal();calc();
+}
+$('months').addEventListener('click',function(e){var t=e.target.closest('.d');if(!t||!t.dataset.d||t.classList.contains('na'))return;pick(t.dataset.d)});
+$('fp').onchange=function(){IN=OUT=null;fillTypes()};
+$('ft').onchange=function(){cal();calc()};
+$('fi').onchange=function(){IN=this.value||null;if(OUT&&OUT<=IN)OUT=null;cal();calc()};
+$('fo').onchange=function(){OUT=this.value||null;cal();calc()};
+$('fab').onclick=function(){$('chat').classList.toggle('on')};
+$('cx').onclick=function(){$('chat').classList.remove('on')};
+function ctx(){
+  if(!DATA)return '';
+  var p=DATA.props[$('fp').value],t=$('ft').value,o=cur(),s='العقار: '+p.n+' | الوحدة: '+t+' | الأسعار (عادي/أدنى) بالريال لليلة. الويك إند الخميس والجمعة.\n';
+  var from=IN||ds(new Date()),k=0,keys=Object.keys(o).sort().filter(function(x){return x>=from});
+  var end=OUT||null;
+  keys.some(function(x){if(end&&x>=end)return true;s+=x+':'+o[x][1]+'/'+o[x][2]+';';return ++k>=45});
+  return s;
+}
+$('cf').onsubmit=function(e){
+  e.preventDefault();var q=$('cq').value.trim();if(!q)return;$('cq').value='';
+  var L=$('cl');L.insertAdjacentHTML('beforeend','<div class="m u"></div>');L.lastChild.textContent=q;
+  L.insertAdjacentHTML('beforeend','<div class="m a">…</div>');var a=L.lastChild;L.scrollTop=L.scrollHeight;
+  rpc('simAskPub',[q,ctx().slice(0,2600)]).then(function(j){a.textContent=j.text||('تعذّر الرد: '+(j.error||''));L.scrollTop=L.scrollHeight}).catch(function(){a.textContent='تعذّر الاتصال بالمساعد.'});
+};
+load();
 </script>
 </body>
 </html>
